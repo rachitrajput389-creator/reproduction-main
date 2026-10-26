@@ -1,0 +1,2927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEET Biology Quiz Master - Sexual Reproduction in Flowering Plants</title>
+  <style>
+    /* ==========================================================================
+       CSS Variables & Theme Tokens
+       ========================================================================== */
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(18, 24, 38, 0.88);
+      --bg-card-hover: rgba(28, 36, 56, 0.95);
+      --bg-surface: #111827;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.6);
+      
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --primary-light: rgba(99, 102, 241, 0.15);
+      --primary-glow: rgba(99, 102, 241, 0.35);
+      
+      --accent: #ec4899;
+      --accent-glow: rgba(236, 72, 153, 0.35);
+      
+      --success: #10b981;
+      --success-light: rgba(16, 185, 129, 0.15);
+      --success-border: rgba(16, 185, 129, 0.4);
+      
+      --danger: #ef4444;
+      --danger-light: rgba(239, 68, 68, 0.15);
+      --danger-border: rgba(239, 68, 68, 0.4);
+
+      --warning: #f59e0b;
+      --warning-light: rgba(245, 158, 11, 0.15);
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 12px 24px -4px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 35px var(--primary-glow);
+      
+      --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ==========================================================================
+       Global Reset & Typography
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(ellipse 90% 60% at 50% -20%, rgba(99, 102, 241, 0.22), transparent 70%),
+        radial-gradient(circle at 10% 90%, rgba(236, 72, 153, 0.15), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.15), transparent 45%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 16px 40px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================================================
+       App Container & Header
+       ========================================================================== */
+    .app-wrapper {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .top-brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 4px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .brand-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .badge-live::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* ==========================================================================
+       Card Containers
+       ========================================================================== */
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      padding: 32px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+    }
+
+    /* Screen Visibility States */
+    .screen {
+      display: none;
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       1. Landing Screen
+       ========================================================================== */
+    .hero-content {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 6px 16px;
+      border-radius: 999px;
+      color: #a5b4fc;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .feature-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      transition: var(--transition-fast);
+    }
+
+    .feature-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .feature-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .feature-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      box-shadow: 0 10px 25px var(--primary-glow);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 35px var(--primary-glow);
+    }
+
+    .btn-hero:active {
+      transform: translateY(1px);
+    }
+
+    .btn-hero svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      transition: transform var(--transition-fast);
+    }
+
+    .btn-hero:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ==========================================================================
+       2. Active Quiz Screen
+       ========================================================================== */
+    .quiz-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      gap: 16px;
+    }
+
+    .q-indicator {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .q-step-text {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .q-step-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .q-meta-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-pill svg {
+      color: var(--primary);
+    }
+
+    .btn-nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      outline: none;
+    }
+
+    .btn-nav-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    /* Linear Progress Track */
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 3.33%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 999px;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Question Viewport & Display Card */
+    .question-viewport {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .question-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transition: var(--transition-smooth);
+    }
+
+    .question-card:hover {
+      border-color: rgba(99, 102, 241, 0.3);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .q-card-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .q-source-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--primary-light);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #a5b4fc;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .q-counter-pill {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .q-card-content {
+      font-size: 1.12rem;
+      line-height: 1.68;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Match Tables & Callouts */
+    .match-table-wrap {
+      margin: 16px 0;
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .match-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    .match-table th {
+      background: rgba(99, 102, 241, 0.16);
+      color: #c7d2fe;
+      padding: 10px 16px;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .match-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+    }
+
+    .match-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Options Stack */
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition-fast);
+      user-select: none;
+      outline: none;
+    }
+
+    .option-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .option-card:focus-visible {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .option-card.selected {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(139, 92, 246, 0.15));
+      border-color: var(--primary);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    @keyframes crackerCardBurst {
+      0% { transform: scale(0.97); }
+      50% { transform: scale(1.025); }
+      100% { transform: scale(1); }
+    }
+
+    .option-card.cracker-burst {
+      animation: crackerCardBurst 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .option-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .option-card:hover .option-badge {
+      color: var(--text-main);
+      border-color: rgba(99, 102, 241, 0.5);
+    }
+
+    .option-card.selected .option-badge {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .option-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-main);
+      flex: 1;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .option-check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    .option-card.selected .option-check-icon {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .option-check-icon svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 3;
+      opacity: 0;
+      transition: var(--transition-fast);
+    }
+
+    .option-card.selected .option-check-icon svg {
+      opacity: 1;
+    }
+
+    /* Controls & Navigation Footer */
+    .quiz-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      gap: 12px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      outline: none;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      box-shadow: 0 4px 15px var(--primary-glow);
+      transition: var(--transition-fast);
+      outline: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px var(--primary-glow);
+    }
+
+    .btn-primary:active {
+      transform: translateY(1px);
+    }
+
+    .btn-finish {
+      background: linear-gradient(135deg, #10b981, #059669);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-finish:hover {
+      box-shadow: 0 8px 22px rgba(16, 185, 129, 0.5);
+    }
+
+    /* ==========================================================================
+       3. Question Navigator Drawer / Modal
+       ========================================================================== */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .drawer-overlay.active {
+      display: flex;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .drawer-modal {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      max-width: 620px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .drawer-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .btn-close-modal {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+
+    .btn-close-modal:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .grid-question-pills {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 8px;
+      max-height: 360px;
+      overflow-y: auto;
+      padding: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .grid-question-pills {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .nav-pill {
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+
+    .nav-pill:hover {
+      border-color: var(--primary);
+      color: var(--text-main);
+      background: rgba(99, 102, 241, 0.15);
+    }
+
+    .nav-pill.answered {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+
+    .nav-pill.current {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .drawer-legend {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    /* Confirm Modal */
+    .confirm-modal {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .confirm-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .confirm-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .confirm-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .confirm-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       4. Results Screen
+       ========================================================================== */
+    .results-hero {
+      text-align: center;
+      padding: 20px 0 36px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .score-circle-wrap {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 24px;
+    }
+
+    .score-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .score-bg-circle {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 10;
+    }
+
+    .score-progress-circle {
+      fill: none;
+      stroke: url(#scoreGradient);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 427.26;
+      stroke-dashoffset: 427.26;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .score-number-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-val {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1;
+    }
+
+    .score-total {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .perf-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .perf-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .perf-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .stat-value.success { color: #34d399; }
+    .stat-value.danger { color: #f87171; }
+
+    .results-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    /* Review Section */
+    .review-section {
+      padding-top: 32px;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .review-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .review-filter-bar {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-filter {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .btn-filter:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+    }
+
+    .btn-filter.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .review-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: var(--transition-fast);
+    }
+
+    .review-card.correct {
+      border-left: 4px solid var(--success);
+    }
+
+    .review-card.incorrect {
+      border-left: 4px solid var(--danger);
+    }
+
+    .review-card.unanswered {
+      border-left: 4px solid var(--warning);
+    }
+
+    .review-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .review-q-num {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .status-tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .status-tag.correct {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .status-tag.incorrect {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .status-tag.unanswered {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .review-q-text {
+      font-size: 0.98rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .review-answers-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+    }
+
+    .answer-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.88rem;
+    }
+
+    .ans-tag {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      max-width: 75%;
+      text-align: right;
+    }
+
+    .ans-tag.correct-ans {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+
+    .ans-tag.your-ans {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+    }
+
+    /* Cracker Canvas */
+    #crackerCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <!-- Canvas for festive sparkling cracker explosions -->
+  <canvas id="crackerCanvas"></canvas>
+
+  <!-- SVG Gradients -->
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6366f1" />
+        <stop offset="50%" stop-color="#ec4899" />
+        <stop offset="100%" stop-color="#10b981" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="app-wrapper">
+    <!-- Top Branding Header -->
+    <header class="top-brand">
+      <div class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </div>
+        <span>BioMaster NEET · PYQs</span>
+      </div>
+      <div class="header-actions">
+        <span class="badge-live">50 Questions</span>
+      </div>
+    </header>
+
+    <!-- ======================================================================
+         Screen 1: Landing Page / Welcome Hero
+         ====================================================================== -->
+    <main id="screenLanding" class="glass-card screen active">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+          Chapter-Wise NEET Biology PYQs (1993 – 2026)
+        </div>
+        
+        <h1 class="hero-title">Sexual Reproduction in Flowering Plants</h1>
+        <p class="hero-subtitle">
+          Master 50 authentic NEET Biology previous year questions with complete question text, interactive option cards, real-time timer, celebration crackers, and verified answer keys!
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">🌍</div>
+            <h3 class="feature-title">50 High-Yield PYQs</h3>
+            <p class="feature-desc">Complete question texts, statements, and match tables from official NEET / AIPMT papers.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✨</div>
+            <h3 class="feature-title">Interactive Choice</h3>
+            <p class="feature-desc">Tap options with animated festive crackers and sound effects on every selection.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <h3 class="feature-title">Performance Report</h3>
+            <p class="feature-desc">Instant score calculation, accuracy analytics, and question-by-question review.</p>
+          </div>
+        </div>
+
+        <button id="btnStartQuiz" class="btn-hero" autofocus>
+          <span>Start 50-Question Quiz</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <!-- ======================================================================
+         Screen 2: Active Quiz Screen
+         ====================================================================== -->
+    <section id="screenQuiz" class="glass-card screen" aria-live="polite">
+      <!-- Top Question Meta -->
+      <div class="quiz-meta-bar">
+        <div class="q-indicator">
+          <span class="q-step-text">Sexual Reproduction in Flowering Plants</span>
+          <div class="q-step-title">
+            <span id="currentQDisplay">Question 1</span>
+            <span style="font-size: 0.95rem; font-weight: 500; color: var(--text-dim);">of 50</span>
+          </div>
+        </div>
+        
+        <div class="q-meta-actions">
+          <div class="timer-pill" id="timerBadge" title="Elapsed Time">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span id="timerText">00:00</span>
+          </div>
+
+          <button id="btnOpenDrawer" class="btn-nav-toggle" title="Jump to question">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span id="answeredCountText">0/50 Answered</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Linear Progress Bar -->
+      <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="50" aria-valuenow="1">
+        <div class="progress-fill" id="progressBar"></div>
+      </div>
+
+      <!-- Question Viewport -->
+      <div class="question-viewport">
+        <!-- Structured Question Card -->
+        <div class="question-card" id="questionCard">
+          <div class="q-card-topbar">
+            <span class="q-source-badge" id="qSourceBadge">RE-NEET 2026</span>
+            <span class="q-counter-pill" id="qCounterPill">Question 1 of 50</span>
+          </div>
+          <div class="q-card-content" id="qCardContent">
+            <!-- Dynamically populated question text / statements / match table -->
+          </div>
+        </div>
+
+        <!-- Options Container -->
+        <div id="optionsContainer" class="options-container" role="radiogroup" aria-label="Question Options">
+          <!-- Dynamically populated option cards -->
+        </div>
+      </div>
+
+      <!-- Quiz Navigation Controls -->
+      <div class="quiz-footer">
+        <button id="btnPrev" class="btn-secondary" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Previous
+        </button>
+
+        <button id="btnClearAns" class="btn-secondary" style="font-size: 0.85rem;" title="Clear selected answer">
+          Clear Choice
+        </button>
+
+        <button id="btnNext" class="btn-primary">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Screen 3: Results & Analytics Screen
+         ====================================================================== -->
+    <section id="screenResults" class="glass-card screen">
+      <div class="results-hero">
+        <!-- Score Circular Progress Ring -->
+        <div class="score-circle-wrap">
+          <svg class="score-svg" viewBox="0 0 160 160">
+            <circle class="score-bg-circle" cx="80" cy="80" r="68"></circle>
+            <circle class="score-progress-circle" id="scoreRing" cx="80" cy="80" r="68"></circle>
+          </svg>
+          <div class="score-number-box">
+            <div class="score-val" id="scoreDisplay">0</div>
+            <div class="score-total">/ 50 Points</div>
+          </div>
+        </div>
+
+        <div id="perfBadge" class="perf-badge">Performance Grade</div>
+        <h2 id="perfTitle" class="perf-title">Quiz Completed!</h2>
+        <p id="perfSubtitle" class="perf-subtitle">Here is a detailed breakdown of your answers and conceptual accuracy.</p>
+
+        <!-- Stats Metric Grid -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-label">Accuracy</div>
+            <div class="stat-value" id="statAccuracy">0%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Correct</div>
+            <div class="stat-value success" id="statCorrect">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Incorrect</div>
+            <div class="stat-value danger" id="statIncorrect">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Time Taken</div>
+            <div class="stat-value" id="statTime">00:00</div>
+          </div>
+        </div>
+
+        <div class="results-actions">
+          <button id="btnRetake" class="btn-hero" style="font-size: 0.95rem; padding: 13px 28px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            Retake Quiz
+          </button>
+          <button id="btnHome" class="btn-secondary" style="font-size: 0.95rem; padding: 13px 24px;">
+            Home Page
+          </button>
+        </div>
+      </div>
+
+      <!-- Question-by-Question Review -->
+      <div class="review-section">
+        <div class="review-header">
+          <h3 class="review-title">Detailed Answer Review</h3>
+          <div class="review-filter-bar">
+            <button class="btn-filter active" data-filter="all">All (50)</button>
+            <button class="btn-filter" data-filter="correct">Correct</button>
+            <button class="btn-filter" data-filter="incorrect">Incorrect</button>
+            <button class="btn-filter" data-filter="unanswered">Unanswered</button>
+          </div>
+        </div>
+
+        <div id="reviewCardsList" class="review-cards-list">
+          <!-- Dynamically populated review cards -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================================
+       Modal 1: Question Navigator Grid
+       ====================================================================== -->
+  <div id="drawerOverlay" class="drawer-overlay" role="dialog" aria-modal="true" aria-label="Question Navigator">
+    <div class="drawer-modal">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Question Navigator</h3>
+        <button id="btnCloseDrawer" class="btn-close-modal" aria-label="Close Navigator">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div id="gridPills" class="grid-question-pills">
+        <!-- 50 Question Pills rendered dynamically -->
+      </div>
+
+      <div class="drawer-legend">
+        <div class="legend-item">
+          <span class="legend-dot" style="background: var(--primary);"></span> Current
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background: #34d399;"></span> Answered
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background: rgba(255, 255, 255, 0.2);"></span> Unanswered
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Modal 2: Submission Confirmation Dialog
+       ====================================================================== -->
+  <div id="confirmOverlay" class="drawer-overlay" role="dialog" aria-modal="true" aria-label="Submit Confirmation">
+    <div class="confirm-modal">
+      <div class="confirm-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <h3 class="confirm-title" id="confirmTitle">Submit Quiz?</h3>
+      <p class="confirm-desc" id="confirmDesc">
+        Are you sure you want to finish the quiz? You will not be able to change your answers once submitted.
+      </p>
+      <div class="confirm-actions">
+        <button id="btnCancelSubmit" class="btn-secondary">Review Answers</button>
+        <button id="btnConfirmSubmit" class="btn-primary btn-finish">Submit Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       JavaScript Logic
+       ====================================================================== -->
+  <script>
+    /* -------------------------------------------------------------------------
+       50 NEET PYQs: Biotechnology: Principles and Processes (With Complete Text, Options & Keys)
+       ------------------------------------------------------------------------- */
+    const questions = [
+    {
+        "id":  1,
+        "year":  "RE-NEET 2026",
+        "question":  "Which of the following plants produces non-albuminous seeds?",
+        "options":  [
+                        "Pea",
+                        "Wheat",
+                        "Maize",
+                        "Barley"
+                    ],
+        "answer":  "A",
+        "answerText":  "Pea"
+    },
+    {
+        "id":  2,
+        "year":  "RE-NEET 2026",
+        "question":  "Which of the following in female gametophyte of an angiosperm helps in guiding the pollen tube for fertilizing the eggs?",
+        "options":  [
+                        "Polar nucleus",
+                        "Antipodals",
+                        "Synergids",
+                        "Central cells"
+                    ],
+        "answer":  "C",
+        "answerText":  "Synergids"
+    },
+    {
+        "id":  3,
+        "year":  "RE-NEET 2026",
+        "question":  "If the diploid chromosome number of typical angiosperm is 36 , what would be the chromosome number in its endosperm?",
+        "options":  [
+                        "72",
+                        "18",
+                        "36",
+                        "54"
+                    ],
+        "answer":  "D",
+        "answerText":  "54"
+    },
+    {
+        "id":  4,
+        "year":  "RE-NEET 2026",
+        "question":  "How many theca are present in each lobe of a typical bilobed angiosperm anther ?",
+        "options":  [
+                        "12",
+                        "2",
+                        "6",
+                        "8"
+                    ],
+        "answer":  "B",
+        "answerText":  "2"
+    },
+    {
+        "id":  5,
+        "year":  "NEET 2026",
+        "question":  "Arrange the following in the correct developmental sequence related to microsporogenesis :\u003cbr\u003e\u003cbr\u003e\u003cb\u003eA.\u003c/b\u003e Microspore tetrads\u003cbr\u003e\u003cb\u003eB.\u003c/b\u003e Sporogenous tissue\u003cbr\u003e\u003cb\u003eC.\u003c/b\u003e Pollen grains\u003cbr\u003e\u003cb\u003eD.\u003c/b\u003e Pollen mother cells\u003cbr\u003e\u003cbr\u003eChoose the correct answer from the options given below :",
+        "options":  [
+                        "D, A, C, B",
+                        "B, D, A, C",
+                        "B, D, C, A",
+                        "A, D, C, B"
+                    ],
+        "answer":  "B",
+        "answerText":  "B, D, A, C"
+    },
+    {
+        "id":  6,
+        "year":  "NEET 2026",
+        "question":  "Which one of the following is a triploid cell?",
+        "options":  [
+                        "Synergid",
+                        "Central cell",
+                        "Zygote",
+                        "Primary endosperm cell"
+                    ],
+        "answer":  "D",
+        "answerText":  "Primary endosperm cell"
+    },
+    {
+        "id":  7,
+        "year":  "NEET 2026",
+        "question":  "Which one of the following types of pollination brings genetically different types of pollen grains to the stigma?",
+        "options":  [
+                        "Autogamy",
+                        "Xenogamy",
+                        "Geitonogamy",
+                        "Cleistogamy"
+                    ],
+        "answer":  "B",
+        "answerText":  "Xenogamy"
+    },
+    {
+        "id":  8,
+        "year":  "NEET 2025",
+        "question":  "Given below are two statements : One is labelled as Assertion (A) and the other is labelled as Reason (R).\u003cbr\u003e\u003cbr\u003e\u003cb\u003eAssertion (A) :\u003c/b\u003e A typical unfertilised, angiosperm embryo sac at maturity is 8 nucleate and 7-celled.\u003cbr\u003e\u003cb\u003eReason (R) :\u003c/b\u003e The egg apparatus has 2 polar nuclei.\u003cbr\u003e\u003cbr\u003eIn the light of the above statements, choose the correct answer from the options given below :",
+        "options":  [
+                        "A is true but R is false",
+                        "A is false but R is true",
+                        "Both A and R are true and R is the correct explanation of A",
+                        "Both A and R are true but R is NOT the correct explanation of A"
+                    ],
+        "answer":  "A",
+        "answerText":  "A is true but R is false"
+    },
+    {
+        "id":  9,
+        "year":  "NEET 2025",
+        "question":  "Given below are two statements: One is labelled as Assertion (A) and the other is labelled as Reason (R).\u003cbr\u003e\u003cbr\u003e\u003cb\u003eAssertion (A) :\u003c/b\u003e Both wind and water pollinated flowers are not very colourful and do not produce nectar.\u003cbr\u003e\u003cb\u003eReason (R) :\u003c/b\u003e The flowers produce enormous amount of pollen grains in wind and water pollinated flowers.\u003cbr\u003e\u003cbr\u003eIn the light of the above statements, choose the correct answer from the options given below:",
+        "options":  [
+                        "A is true but R is false",
+                        "A is false but R is true",
+                        "Both A and R are true and R is the correct explanation of A",
+                        "Both A and R are true but R is NOT the correct explanation of A"
+                    ],
+        "answer":  "D",
+        "answerText":  "Both A and R are true but R is NOT the correct explanation of A"
+    },
+    {
+        "id":  10,
+        "year":  "NEET 2025",
+        "question":  "How many meiotic and mitotic divisions need to occur for the development of a mature female gametophyte from the megaspore mother cell in an angiosperm plant?",
+        "options":  [
+                        "1 Meiosis and 3 Mitosis",
+                        "No Meiosis and 2 Mitosis",
+                        "2 Meiosis and 3 Mitosis",
+                        "1 Meiosis and 2 Mitosis"
+                    ],
+        "answer":  "A",
+        "answerText":  "1 Meiosis and 3 Mitosis"
+    },
+    {
+        "id":  11,
+        "year":  "NEET 2025",
+        "question":  "Given below are two statements :\u003cbr\u003e\u003cbr\u003e\u003cb\u003eStatement I :\u003c/b\u003e Fig fruit is a non-vegetarian fruit as it has enclosed fig wasps in it.\u003cbr\u003e\u003cb\u003eStatement II :\u003c/b\u003e Fig wasp and fig tree exhibit mutual relationship as fig wasp completes its life cycle in fig fruit and fig fruit gets pollinated by fig wasp.\u003cbr\u003e\u003cbr\u003eIn the light of the above statements, choose the most appropriate answer from the options given below:",
+        "options":  [
+                        "Statement I is correct but statement II is incorrect",
+                        "Statement I is incorrect but statement II is correct",
+                        "Both statement I and statement II are correct",
+                        "Both statement I and statement II are incorrect"
+                    ],
+        "answer":  "B",
+        "answerText":  "Statement I is incorrect but statement II is correct"
+    },
+    {
+        "id":  12,
+        "year":  "NEET 2025",
+        "question":  "Given below are two statements : One is labelled as Assertion (A) and other is labelled as Reason (R).\u003cbr\u003e\u003cbr\u003e\u003cb\u003eAssertion (A) :\u003c/b\u003e Cells of the tapetum possess dense cytoplasm and generally have more than one nucleus.\u003cbr\u003e\u003cb\u003eReason (R) :\u003c/b\u003e Presence of more than one nucleus in the tapetum increases the efficiency of nourishing the developing microspore mother cells.\u003cbr\u003e\u003cbr\u003eIn light of the above statements, choose the most appropriate answer from the options given below:",
+        "options":  [
+                        "A is true but R is false",
+                        "A is false but R is true",
+                        "Both A and R are true and R is the correct explanation of A",
+                        "Both A and R are true but R is NOT the correct explanation of A"
+                    ],
+        "answer":  "C",
+        "answerText":  "Both A and R are true and R is the correct explanation of A"
+    },
+    {
+        "id":  13,
+        "year":  "NEET 2025",
+        "question":  "Match List I with List II :\u003cbr\u003e\u003cdiv class=\u0027match-table-wrap\u0027\u003e\u003ctable class=\u0027match-table\u0027\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003eList - I\u003c/th\u003e\u003cth\u003eList - II\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eA. Scutellum\u003c/td\u003e\u003ctd\u003eI. Persistent nucellus\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eB. Non-albuminous seed\u003c/td\u003e\u003ctd\u003eII. Cotyledon of Monocot seed\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eC. Epiblast\u003c/td\u003e\u003ctd\u003eIII. Groundnut\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eD. Perisperm\u003c/td\u003e\u003ctd\u003eIV. Rudimentary cotyledon\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003eChoose the option with all correct matches.",
+        "options":  [
+                        "A-IV, B-III, C-I, D-II",
+                        "A-II, B-IV, C-III, D-I",
+                        "A-II, B-III, C-IV, D-I",
+                        "A-IV, B-III, C-II, D-I"
+                    ],
+        "answer":  "C",
+        "answerText":  "A-II, B-III, C-IV, D-I"
+    },
+    {
+        "id":  14,
+        "year":  "NEET 2024 (Re-Exam)",
+        "question":  "Which part of the ovule stores reserve food materials?",
+        "options":  [
+                        "Nucellus",
+                        "Integument",
+                        "Placenta",
+                        "Funicle"
+                    ],
+        "answer":  "A",
+        "answerText":  "Nucellus"
+    },
+    {
+        "id":  15,
+        "year":  "NEET 2024 (Re-Exam)",
+        "question":  "Pollen grains remain preserved as fossils due to the presence of :",
+        "options":  [
+                        "Epidermal layer",
+                        "Tapetum",
+                        "Exine layer",
+                        "Intine layer"
+                    ],
+        "answer":  "C",
+        "answerText":  "Exine layer"
+    },
+    {
+        "id":  16,
+        "year":  "NEET 2024 (Re-Exam)",
+        "question":  "In the false fruit apple, the fleshy edible part (marked as \u0027x\u0027 surrounding the endocarp) is derived from:",
+        "options":  [
+                        "Endosperm",
+                        "Thalamus",
+                        "Endocarp",
+                        "Mesocarp"
+                    ],
+        "answer":  "B",
+        "answerText":  "Thalamus"
+    },
+    {
+        "id":  17,
+        "year":  "NEET 2024",
+        "question":  "Identify the set of correct statements:\u003cbr\u003e\u003cbr\u003e\u003cb\u003eA.\u003c/b\u003e The flowers of Vallisneria are colourful and produce nectar.\u003cbr\u003e\u003cb\u003eB.\u003c/b\u003e The flowers of water lily are not pollinated by water.\u003cbr\u003e\u003cb\u003eC.\u003c/b\u003e In most of water-pollinated species, the pollen grains are protected from wetting.\u003cbr\u003e\u003cb\u003eD.\u003c/b\u003e Pollen grains of some hydrophytes are long and ribbon like.\u003cbr\u003e\u003cb\u003eE.\u003c/b\u003e In some hydrophytes, the pollen grains are carried passively inside water.\u003cbr\u003e\u003cbr\u003eChoose the correct answer from the options given below.",
+        "options":  [
+                        "C, D and E only",
+                        "A, B, C and D only",
+                        "A, C, D and E only",
+                        "B, C, D and E only"
+                    ],
+        "answer":  "D",
+        "answerText":  "B, C, D and E only"
+    },
+    {
+        "id":  18,
+        "year":  "NEET 2024",
+        "question":  "Identify the correct description regarding a typical wind-pollinated plant inflorescence (such as the tassel in maize cob):",
+        "options":  [
+                        "Wind pollinated plant inflorescence showing flowers with well exposed stamens.",
+                        "Water pollinated flowers showing stamens with mucilaginous covering.",
+                        "Cleistogamous flowers showing autogamy.",
+                        "Compact inflorescence showing complete autogamy"
+                    ],
+        "answer":  "A",
+        "answerText":  "Wind pollinated plant inflorescence showing flowers with well exposed stamens."
+    },
+    {
+        "id":  19,
+        "year":  "NEET 2023 Manipur",
+        "question":  "In which of the following sets of families, the pollen grains are viable for months?",
+        "options":  [
+                        "Solanaceae, Poaceae and Liliaceae",
+                        "Brassicaceae, Liliaceae and Poaceae",
+                        "Rosaceae, Liliaceae and Poaceae",
+                        "Leguminosae, Solanaceae and Rosaceae"
+                    ],
+        "answer":  "D",
+        "answerText":  "Leguminosae, Solanaceae and Rosaceae"
+    },
+    {
+        "id":  20,
+        "year":  "NEET 2023 Manipur",
+        "question":  "Transfer of pollen grains from anther to stigma of another flower of same plant is known as :",
+        "options":  [
+                        "Geitonogamy",
+                        "Xenogamy",
+                        "Autogamy",
+                        "Cleistogamy"
+                    ],
+        "answer":  "A",
+        "answerText":  "Geitonogamy"
+    },
+    {
+        "id":  21,
+        "year":  "NEET 2023 Manipur",
+        "question":  "In angiosperms the correct sequence of events in formation of female gametophyte in the ovule is :\u003cbr\u003e\u003cbr\u003e\u003cb\u003e(A)\u003c/b\u003e 3 successive free nuclear divisions in functional megaspore.\u003cbr\u003e\u003cb\u003e(B)\u003c/b\u003e Degeneration of 3 megaspores.\u003cbr\u003e\u003cb\u003e(C)\u003c/b\u003e Meiotic division in megaspore mother cell.\u003cbr\u003e\u003cb\u003e(D)\u003c/b\u003e Migration of 3 nuclei towards each pole.\u003cbr\u003e\u003cb\u003e(E)\u003c/b\u003e Formation of wall resulting in seven celled embryosac.\u003cbr\u003e\u003cbr\u003eChoose the correct answer from the options given below :",
+        "options":  [
+                        "(A), (B), (C), (D), (E)",
+                        "(C), (E), (A), (D), (B)",
+                        "(B), (C), (A), (D), (E)",
+                        "(C), (B), (A), (D), (E)"
+                    ],
+        "answer":  "D",
+        "answerText":  "(C), (B), (A), (D), (E)"
+    },
+    {
+        "id":  22,
+        "year":  "NEET 2023",
+        "question":  "What is the function of tassels in the corn cob?",
+        "options":  [
+                        "To trap pollen grains",
+                        "To disperse pollen grains",
+                        "To protect seeds",
+                        "To attract insects"
+                    ],
+        "answer":  "A",
+        "answerText":  "To trap pollen grains"
+    },
+    {
+        "id":  23,
+        "year":  "NEET 2023",
+        "question":  "Large, colourful, fragrant flowers with nectar are seen in",
+        "options":  [
+                        "Bird pollinated plants",
+                        "Bat pollinated plants",
+                        "Wind pollinated plants",
+                        "Insect pollinated plants"
+                    ],
+        "answer":  "D",
+        "answerText":  "Insect pollinated plants"
+    },
+    {
+        "id":  24,
+        "year":  "NEET 2023",
+        "question":  "In angiosperm, the haploid, diploid and triploid structures of a fertilized embryo sac sequentially are :",
+        "options":  [
+                        "Antipodals, synergids, and primary endosperm nucleus",
+                        "Synergids, Zygote and Primary endosperm nucleus",
+                        "Synergids, antipodals and Polar nuclei",
+                        "Synergids, Primary endosperm nucleus and zygote"
+                    ],
+        "answer":  "B",
+        "answerText":  "Synergids, Zygote and Primary endosperm nucleus"
+    },
+    {
+        "id":  25,
+        "year":  "NEET 2022 Phase 2",
+        "question":  "The residual persistent part which forms the perisperm in the seeds of beet is",
+        "options":  [
+                        "Integument",
+                        "Calyx",
+                        "Endosperm",
+                        "Nucellus"
+                    ],
+        "answer":  "D",
+        "answerText":  "Nucellus"
+    },
+    {
+        "id":  26,
+        "year":  "NEET 2022 Phase 2",
+        "question":  "To ensure that only the desired pollens fall on the stigma in artificial hybridization process:\u003cbr\u003e\u003cbr\u003e\u003cb\u003e(a)\u003c/b\u003e the female flower buds of plant producing unisexual flowers need not be bagged.\u003cbr\u003e\u003cb\u003e(b)\u003c/b\u003e there is no need to emasculate unisexual flowers of selected female parent\u003cbr\u003e\u003cb\u003e(c)\u003c/b\u003e emasculated flowers are to be bagged immediately after cross pollination\u003cbr\u003e\u003cb\u003e(d)\u003c/b\u003e emasculated flowers are to be bagged after removal of anthers\u003cbr\u003e\u003cb\u003e(e)\u003c/b\u003e bisexual flowers, showing protogyny are never selected for cross\u003cbr\u003e\u003cbr\u003eChoose the correct answer from the options given below:",
+        "options":  [
+                        "(a), (d) and (e) only",
+                        "(a), (b) and (c) only",
+                        "(b), (c) and (d) only",
+                        "(b), (c) and (e) only"
+                    ],
+        "answer":  "C",
+        "answerText":  "(b), (c) and (d) only"
+    },
+    {
+        "id":  27,
+        "year":  "NEET 2022 Phase 2",
+        "question":  "In general the egg apparatus of embryo sac in angiosperm consists of",
+        "options":  [
+                        "One egg cell, two synergids, two antipodal cells, two Polar nuclei",
+                        "One egg cell, two synergids, three antipodal cells, two Polar nuclei",
+                        "One egg cell, two synergids, two antipodal cells, three Polar nuclei",
+                        "One egg cell, three synergids, two antipodal cells, two Polar nuclei"
+                    ],
+        "answer":  "B",
+        "answerText":  "One egg cell, two synergids, three antipodal cells, two Polar nuclei"
+    },
+    {
+        "id":  28,
+        "year":  "NEET 2022 Phase 1",
+        "question":  "Given below are two statements:\u003cbr\u003e\u003cbr\u003e\u003cb\u003eStatement I :\u003c/b\u003e Cleistogamous flowers are invariably autogamous\u003cbr\u003e\u003cb\u003eStatement II :\u003c/b\u003e Cleistogamy is disadvantageous as there is no chance for cross pollination\u003cbr\u003e\u003cbr\u003eIn the light of the above statements, choose the correct answer from the options given below :",
+        "options":  [
+                        "Both Statement I and Statement II are correct",
+                        "Both Statement I and Statement II are incorrect",
+                        "Statement I is correct but Statement II is incorrect",
+                        "Statement I is incorrect but Statement II is correct"
+                    ],
+        "answer":  "A",
+        "answerText":  "Both Statement I and Statement II are correct"
+    },
+    {
+        "id":  29,
+        "year":  "NEET 2022 Phase 1",
+        "question":  "Identify the incorrect statement related to Pollination:",
+        "options":  [
+                        "Pollination by water is quite rare in flowering plants",
+                        "Pollination by wind is more common amongst abiotic pollination",
+                        "Flowers produce foul odours to attract flies and beetles to get pollinated",
+                        "Moths and butterflies are the most dominant pollinating agents among insects"
+                    ],
+        "answer":  "D",
+        "answerText":  "Moths and butterflies are the most dominant pollinating agents among insects"
+    },
+    {
+        "id":  30,
+        "year":  "NEET 2022 Phase 1",
+        "question":  "Which part of the fruit (as represented in false fruit diagram) makes it a false fruit?",
+        "options":  [
+                        "A -\u003e Mesocarp",
+                        "B -\u003e Endocarp",
+                        "C -\u003e Thalamus",
+                        "D -\u003e Seed"
+                    ],
+        "answer":  "C",
+        "answerText":  "C -\u003e Thalamus"
+    },
+    {
+        "id":  31,
+        "year":  "NEET 2021",
+        "question":  "The term used for transfer of pollen grains from anthers of one plant to stigma of a different plant which, during pollination, brings genetically different types of pollen grains to stigma, is :",
+        "options":  [
+                        "Cleistogamy",
+                        "Xenogamy",
+                        "Geitonogamy",
+                        "Chasmogamy"
+                    ],
+        "answer":  "B",
+        "answerText":  "Xenogamy"
+    },
+    {
+        "id":  32,
+        "year":  "NEET 2021",
+        "question":  "Diadelphous stamens are found in",
+        "options":  [
+                        "China rose and citrus",
+                        "China rose",
+                        "Citrus",
+                        "Pea"
+                    ],
+        "answer":  "D",
+        "answerText":  "Pea"
+    },
+    {
+        "id":  33,
+        "year":  "NEET 2021",
+        "question":  "A typical angiosperm embryo sac at maturity is :",
+        "options":  [
+                        "8-nucleate and 8-celled",
+                        "8-nucleate and 7-celled",
+                        "7-nucleate and 8-celled",
+                        "7-nucleate and 7-celled"
+                    ],
+        "answer":  "B",
+        "answerText":  "8-nucleate and 7-celled"
+    },
+    {
+        "id":  34,
+        "year":  "NEET 2021",
+        "question":  "In some members of which of the following pairs of families, pollen grains retain their viability for months after release?",
+        "options":  [
+                        "Rosaceae : Leguminosae",
+                        "Poaceae : Rosaceae",
+                        "Poaceae : Leguminosae",
+                        "Poaceae : Solanaceae"
+                    ],
+        "answer":  "A",
+        "answerText":  "Rosaceae : Leguminosae"
+    },
+    {
+        "id":  35,
+        "year":  "NEET 2020 Phase 2",
+        "question":  "In some plants thalamus contributes to fruit formation. Such fruits are termed as :",
+        "options":  [
+                        "Parthenocarpic fruit",
+                        "False fruits",
+                        "Aggregate fruits",
+                        "True fruits"
+                    ],
+        "answer":  "B",
+        "answerText":  "False fruits"
+    },
+    {
+        "id":  36,
+        "year":  "NEET 2020 Phase 2",
+        "question":  "Which of the following is incorrect for wind-pollinated plants ?",
+        "options":  [
+                        "Pollen grains are light and non-sticky",
+                        "Well exposed stamens and stigma",
+                        "Many ovules in each ovary",
+                        "Flowers are small and not brightly coloured"
+                    ],
+        "answer":  "C",
+        "answerText":  "Many ovules in each ovary"
+    },
+    {
+        "id":  37,
+        "year":  "NEET 2020 Phase 1",
+        "question":  "The body of the ovule is fused within the funicle at",
+        "options":  [
+                        "Chalaza",
+                        "Hilum",
+                        "Micropyle",
+                        "Nucellus"
+                    ],
+        "answer":  "B",
+        "answerText":  "Hilum"
+    },
+    {
+        "id":  38,
+        "year":  "NEET 2020 Phase 1",
+        "question":  "The plant parts which consist of two generations - one within the other:\u003cbr\u003e\u003cbr\u003e(i) Pollen grains inside the anther\u003cbr\u003e(ii) Germinated pollen grain with two male gametes\u003cbr\u003e(iii) Seed inside the fruit\u003cbr\u003e(iv) Embryo sac inside the ovule",
+        "options":  [
+                        "(i) and (iv)",
+                        "(i) only",
+                        "(i), (ii) and (iii)",
+                        "(iii) and (iv)"
+                    ],
+        "answer":  "A",
+        "answerText":  "(i) and (iv)"
+    },
+    {
+        "id":  39,
+        "year":  "NEET 2019 (Odisha)",
+        "question":  "Which is the most common type of embryo sac in angiosperms?",
+        "options":  [
+                        "Bisporic with two sequential mitotic divisions",
+                        "Tetrasporic with one mitotic stage of divisions",
+                        "Monosporic with three sequential mitotic divisions",
+                        "Monosporic with two sequential mitotic divisions"
+                    ],
+        "answer":  "C",
+        "answerText":  "Monosporic with three sequential mitotic divisions"
+    },
+    {
+        "id":  40,
+        "year":  "NEET 2019 (Odisha)",
+        "question":  "What type of pollination takes place in Vallisneria?",
+        "options":  [
+                        "Male flowers are carried by water currents to female flowers at surface of water.",
+                        "Pollination occurs in submerged condition by water.",
+                        "Flowers emerge above surface of water and pollination occurs by insects.",
+                        "Flowers emerge above water surface and pollen is carried by wind."
+                    ],
+        "answer":  "A",
+        "answerText":  "Male flowers are carried by water currents to female flowers at surface of water."
+    },
+    {
+        "id":  41,
+        "year":  "NEET 2019 (Odisha)",
+        "question":  "In which one of the following, both autogamy and geitonogamy are prevented?",
+        "options":  [
+                        "Maize",
+                        "Wheat",
+                        "Papaya",
+                        "Castor"
+                    ],
+        "answer":  "C",
+        "answerText":  "Papaya"
+    },
+    {
+        "id":  42,
+        "year":  "NEET 2019",
+        "question":  "In some plants, the female gamete develops into embryo without fertilization. This phenomenon is known as :",
+        "options":  [
+                        "Syngamy",
+                        "Parthenocarpy",
+                        "Parthenogenesis",
+                        "Autogamy"
+                    ],
+        "answer":  "C",
+        "answerText":  "Parthenogenesis"
+    },
+    {
+        "id":  43,
+        "year":  "NEET 2019",
+        "question":  "Which one of the following statements regarding post-fertilization development in flowering plants is incorrect?",
+        "options":  [
+                        "Central cell develops into endosperm",
+                        "Ovules develop into embryo sac",
+                        "Ovary develops into fruit",
+                        "Zygote develops into embryo"
+                    ],
+        "answer":  "B",
+        "answerText":  "Ovules develop into embryo sac"
+    },
+    {
+        "id":  44,
+        "year":  "NEET 2019",
+        "question":  "Persistent nucellus in the seed is known as",
+        "options":  [
+                        "Hilum",
+                        "Tegmen",
+                        "Chalaza",
+                        "Perisperm"
+                    ],
+        "answer":  "D",
+        "answerText":  "Perisperm"
+    },
+    {
+        "id":  45,
+        "year":  "NEET 2019",
+        "question":  "What is the fate of the male gametes discharged in the synergid?",
+        "options":  [
+                        "One fuses with the egg, other (s) fuse (s) with synergid nucleus.",
+                        "One fuses with the egg and other fuses with central cell nuclei.",
+                        "One fuses with the egg, other (s) degenerate (s) in the synergid.",
+                        "All fuse with the egg."
+                    ],
+        "answer":  "B",
+        "answerText":  "One fuses with the egg and other fuses with central cell nuclei."
+    },
+    {
+        "id":  46,
+        "year":  "NEET 2018",
+        "question":  "Which of the following has proved helpful in preserving pollen as fossils?",
+        "options":  [
+                        "Pollenkitt",
+                        "Cellulosic intine",
+                        "Oil content",
+                        "Sporopollenin"
+                    ],
+        "answer":  "D",
+        "answerText":  "Sporopollenin"
+    },
+    {
+        "id":  47,
+        "year":  "NEET 2018",
+        "question":  "Winged pollen grains are present in",
+        "options":  [
+                        "Mustard",
+                        "Cycas",
+                        "Mango",
+                        "Pinus"
+                    ],
+        "answer":  "D",
+        "answerText":  "Pinus"
+    },
+    {
+        "id":  48,
+        "year":  "NEET 2018",
+        "question":  "Double fertilization is",
+        "options":  [
+                        "fusion of two male gametes of a pollen tube with two different eggs",
+                        "fusion of one male gamete with two polar nuclei",
+                        "fusion of two male gametes with one egg",
+                        "syngamy and triple fusion"
+                    ],
+        "answer":  "D",
+        "answerText":  "syngamy and triple fusion"
+    },
+    {
+        "id":  49,
+        "year":  "NEET 2017",
+        "question":  "Functional megaspore in an angiosperm develops into an",
+        "options":  [
+                        "endosperm",
+                        "embryo sac",
+                        "embryo",
+                        "ovule."
+                    ],
+        "answer":  "B",
+        "answerText":  "embryo sac"
+    },
+    {
+        "id":  50,
+        "year":  "NEET 2017",
+        "question":  "Attractants and rewards are required for",
+        "options":  [
+                        "entomophily",
+                        "hydrophily",
+                        "cleistogamy",
+                        "anemophily."
+                    ],
+        "answer":  "A",
+        "answerText":  "entomophily"
+    }
+];
+
+    /* -------------------------------------------------------------------------
+       State Management
+       ------------------------------------------------------------------------- */
+    let currentQuestion = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+    let timerInterval = null;
+    let secondsElapsed = 0;
+
+    /* DOM Element References */
+    const screenLanding = document.getElementById("screenLanding");
+    const screenQuiz = document.getElementById("screenQuiz");
+    const screenResults = document.getElementById("screenResults");
+
+    const btnStartQuiz = document.getElementById("btnStartQuiz");
+    const currentQDisplay = document.getElementById("currentQDisplay");
+    const progressBar = document.getElementById("progressBar");
+    const timerText = document.getElementById("timerText");
+    const answeredCountText = document.getElementById("answeredCountText");
+
+    const qSourceBadge = document.getElementById("qSourceBadge");
+    const qCounterPill = document.getElementById("qCounterPill");
+    const qCardContent = document.getElementById("qCardContent");
+    const optionsContainer = document.getElementById("optionsContainer");
+
+    const btnPrev = document.getElementById("btnPrev");
+    const btnNext = document.getElementById("btnNext");
+    const btnClearAns = document.getElementById("btnClearAns");
+
+    const btnOpenDrawer = document.getElementById("btnOpenDrawer");
+    const btnCloseDrawer = document.getElementById("btnCloseDrawer");
+    const drawerOverlay = document.getElementById("drawerOverlay");
+    const gridPills = document.getElementById("gridPills");
+
+    const confirmOverlay = document.getElementById("confirmOverlay");
+    const confirmTitle = document.getElementById("confirmTitle");
+    const confirmDesc = document.getElementById("confirmDesc");
+    const btnCancelSubmit = document.getElementById("btnCancelSubmit");
+    const btnConfirmSubmit = document.getElementById("btnConfirmSubmit");
+
+    const scoreDisplay = document.getElementById("scoreDisplay");
+    const scoreRing = document.getElementById("scoreRing");
+    const perfBadge = document.getElementById("perfBadge");
+    const perfTitle = document.getElementById("perfTitle");
+    const perfSubtitle = document.getElementById("perfSubtitle");
+    const statAccuracy = document.getElementById("statAccuracy");
+    const statCorrect = document.getElementById("statCorrect");
+    const statIncorrect = document.getElementById("statIncorrect");
+    const statTime = document.getElementById("statTime");
+    const btnRetake = document.getElementById("btnRetake");
+    const btnHome = document.getElementById("btnHome");
+    const reviewCardsList = document.getElementById("reviewCardsList");
+
+    /* -------------------------------------------------------------------------
+       Screen Switching
+       ------------------------------------------------------------------------- */
+    function showScreen(screen) {
+      [screenLanding, screenQuiz, screenResults].forEach(s => s.classList.remove("active"));
+      screen.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* -------------------------------------------------------------------------
+       Timer Management
+       ------------------------------------------------------------------------- */
+    function startTimer() {
+      stopTimer();
+      secondsElapsed = 0;
+      updateTimerDisplay();
+      timerInterval = setInterval(() => {
+        secondsElapsed++;
+        updateTimerDisplay();
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function formatTime(totalSeconds) {
+      const mins = Math.floor(totalSeconds / 60);
+      const secs = totalSeconds % 60;
+      return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    }
+
+    function updateTimerDisplay() {
+      timerText.textContent = formatTime(secondsElapsed);
+    }
+
+    /* -------------------------------------------------------------------------
+       Quiz Core Logic
+       ------------------------------------------------------------------------- */
+    function startQuiz() {
+      currentQuestion = 0;
+      userAnswers = new Array(questions.length).fill(null);
+      showScreen(screenQuiz);
+      startTimer();
+      loadQuestion(0);
+      updateMeta();
+    }
+
+    function loadQuestion(index) {
+      currentQuestion = index;
+      const q = questions[index];
+
+      // Update Header Text & Progress
+      currentQDisplay.textContent = `Question ${index + 1}`;
+      const progressPercent = ((index + 1) / questions.length) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+
+      // Update Question Card
+      qSourceBadge.textContent = q.year || "NEET Biology";
+      qCounterPill.textContent = `Question ${index + 1} of ${questions.length}`;
+      qCardContent.innerHTML = q.question;
+
+      // Render Options
+      optionsContainer.innerHTML = "";
+      const badgeLetters = ["A", "B", "C", "D"];
+
+      q.options.forEach((optText, optIdx) => {
+        const letter = badgeLetters[optIdx];
+        const optionCard = document.createElement("div");
+        optionCard.className = "option-card";
+        optionCard.setAttribute("role", "radio");
+        optionCard.setAttribute("tabindex", "0");
+        optionCard.setAttribute("data-letter", letter);
+
+        const isSelected = (userAnswers[index] === letter);
+        if (isSelected) {
+          optionCard.classList.add("selected");
+          optionCard.setAttribute("aria-checked", "true");
+        } else {
+          optionCard.setAttribute("aria-checked", "false");
+        }
+
+        optionCard.innerHTML = `
+          <div class="option-badge">${letter}</div>
+          <div class="option-label">
+            <span>${optText}</span>
+          </div>
+          <div class="option-check-icon">
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+        `;
+
+        // Click Selection with coordinates for celebration burst
+        optionCard.addEventListener("click", (e) => {
+          const x = e.clientX || (optionCard.getBoundingClientRect().left + optionCard.offsetWidth / 2);
+          const y = e.clientY || (optionCard.getBoundingClientRect().top + optionCard.offsetHeight / 2);
+          selectAnswer(letter, { x, y });
+        });
+
+        // Keyboard Selection (Enter / Space)
+        optionCard.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const rect = optionCard.getBoundingClientRect();
+            selectAnswer(letter, { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+          }
+        });
+
+        optionsContainer.appendChild(optionCard);
+      });
+
+      // Update Navigation Buttons
+      btnPrev.disabled = (index === 0);
+      if (index === questions.length - 1) {
+        btnNext.innerHTML = `
+          Finish Quiz
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        `;
+        btnNext.classList.add("btn-finish");
+      } else {
+        btnNext.innerHTML = `
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        `;
+        btnNext.classList.remove("btn-finish");
+      }
+
+      updateMeta();
+    }
+
+    function selectAnswer(letter, originCoords) {
+      userAnswers[currentQuestion] = letter;
+      
+      // Update UI cards
+      const cards = optionsContainer.querySelectorAll(".option-card");
+      cards.forEach(card => {
+        if (card.getAttribute("data-letter") === letter) {
+          card.classList.add("selected");
+          card.setAttribute("aria-checked", "true");
+          // Trigger cracker burst animation on card
+          card.classList.remove("cracker-burst");
+          void card.offsetWidth; // trigger reflow
+          card.classList.add("cracker-burst");
+
+          if (!originCoords) {
+            const rect = card.getBoundingClientRect();
+            originCoords = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+          }
+        } else {
+          card.classList.remove("selected");
+          card.setAttribute("aria-checked", "false");
+        }
+      });
+
+      // Launch full cracker particle burst
+      if (originCoords && typeof originCoords.x === "number") {
+        triggerCrackers(originCoords.x, originCoords.y);
+      } else {
+        triggerCrackers(window.innerWidth / 2, window.innerHeight / 2);
+      }
+
+      updateMeta();
+    }
+
+    function clearCurrentAnswer() {
+      userAnswers[currentQuestion] = null;
+      const cards = optionsContainer.querySelectorAll(".option-card");
+      cards.forEach(card => {
+        card.classList.remove("selected");
+        card.setAttribute("aria-checked", "false");
+      });
+      updateMeta();
+    }
+
+    function updateMeta() {
+      const answeredCount = userAnswers.filter(a => a !== null).length;
+      answeredCountText.textContent = `${answeredCount}/${questions.length} Answered`;
+    }
+
+    function goToNext() {
+      if (currentQuestion < questions.length - 1) {
+        loadQuestion(currentQuestion + 1);
+      } else {
+        requestSubmit();
+      }
+    }
+
+    function goToPrev() {
+      if (currentQuestion > 0) {
+        loadQuestion(currentQuestion - 1);
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       Question Navigator Grid Drawer
+       ------------------------------------------------------------------------- */
+    function openDrawer() {
+      gridPills.innerHTML = "";
+      questions.forEach((q, idx) => {
+        const pill = document.createElement("button");
+        pill.className = "nav-pill";
+        pill.textContent = idx + 1;
+        pill.title = `Question ${idx + 1}`;
+
+        if (userAnswers[idx] !== null) {
+          pill.classList.add("answered");
+        }
+        if (idx === currentQuestion) {
+          pill.classList.add("current");
+        }
+
+        pill.addEventListener("click", () => {
+          loadQuestion(idx);
+          closeDrawer();
+        });
+
+        gridPills.appendChild(pill);
+      });
+
+      drawerOverlay.classList.add("active");
+    }
+
+    function closeDrawer() {
+      drawerOverlay.classList.remove("active");
+    }
+
+    /* -------------------------------------------------------------------------
+       Submission Confirmation
+       ------------------------------------------------------------------------- */
+    function requestSubmit() {
+      const answeredCount = userAnswers.filter(a => a !== null).length;
+      const unansweredCount = questions.length - answeredCount;
+
+      if (unansweredCount > 0) {
+        confirmTitle.textContent = "Unanswered Questions";
+        confirmDesc.textContent = `You have answered ${answeredCount} of ${questions.length} questions. You still have ${unansweredCount} unanswered. Would you like to review them or submit now?`;
+        btnCancelSubmit.textContent = "Review Remaining";
+      } else {
+        confirmTitle.textContent = "Finish & Submit Quiz?";
+        confirmDesc.textContent = `You have completed all ${questions.length} questions! Ready to see your score and full performance analysis?`;
+        btnCancelSubmit.textContent = "Double Check Answers";
+      }
+
+      confirmOverlay.classList.add("active");
+    }
+
+    function closeConfirm() {
+      confirmOverlay.classList.remove("active");
+    }
+
+    /* -------------------------------------------------------------------------
+       Results & Scoring Engine
+       ------------------------------------------------------------------------- */
+    function submitQuiz() {
+      closeConfirm();
+      stopTimer();
+
+      let correctCount = 0;
+      let incorrectCount = 0;
+      let unansweredCount = 0;
+
+      questions.forEach((q, idx) => {
+        const userChoice = userAnswers[idx];
+        if (userChoice === null) {
+          unansweredCount++;
+        } else if (userChoice === q.answer) {
+          correctCount++;
+        } else {
+          incorrectCount++;
+        }
+      });
+
+      const totalQuestions = questions.length;
+      const accuracyPercent = Math.round((correctCount / totalQuestions) * 100);
+
+      // Populate Stats
+      scoreDisplay.textContent = correctCount;
+      statAccuracy.textContent = `${accuracyPercent}%`;
+      statCorrect.textContent = correctCount;
+      statIncorrect.textContent = incorrectCount;
+      statTime.textContent = formatTime(secondsElapsed);
+
+      // Animated Circular Ring (circumference = 2 * PI * 68 ≈ 427.26)
+      const circumference = 2 * Math.PI * 68;
+      scoreRing.style.strokeDasharray = `${circumference}`;
+      const offset = circumference - (accuracyPercent / 100) * circumference;
+      setTimeout(() => {
+        scoreRing.style.strokeDashoffset = `${offset}`;
+      }, 150);
+
+      // Performance Feedback Tone
+      if (accuracyPercent >= 90) {
+        perfBadge.textContent = "Mastery Level";
+        perfBadge.style.background = "rgba(16, 185, 129, 0.15)";
+        perfBadge.style.color = "#34d399";
+        perfTitle.textContent = "Outstanding Performance! 🏆";
+        perfSubtitle.textContent = "Exceptional conceptual clarity across Sexual Reproduction in Flowering Plants NEET questions!";
+      } else if (accuracyPercent >= 75) {
+        perfBadge.textContent = "Distinction";
+        perfBadge.style.background = "rgba(99, 102, 241, 0.15)";
+        perfBadge.style.color = "#a5b4fc";
+        perfTitle.textContent = "Great Job! Well Done! 🌟";
+        perfSubtitle.textContent = "You demonstrated strong mastery with only a few tricky questions to polish.";
+      } else if (accuracyPercent >= 50) {
+        perfBadge.textContent = "Good Effort";
+        perfBadge.style.background = "rgba(245, 158, 11, 0.15)";
+        perfBadge.style.color = "#fbbf24";
+        perfTitle.textContent = "Solid Foundation! 👍";
+        perfSubtitle.textContent = "Review the verified answer explanations below to strengthen your score.";
+      } else {
+        perfBadge.textContent = "Practice Needed";
+        perfBadge.style.background = "rgba(239, 68, 68, 0.15)";
+        perfBadge.style.color = "#f87171";
+        perfTitle.textContent = "Keep Learning & Practicing! 📚";
+        perfSubtitle.textContent = "Carefully review each question and answer below to master flowering plant reproduction concepts.";
+      }
+
+      // Update filter badge counts
+      const btnFilterAll = document.querySelector('.btn-filter[data-filter="all"]');
+      const btnFilterCor = document.querySelector('.btn-filter[data-filter="correct"]');
+      const btnFilterInc = document.querySelector('.btn-filter[data-filter="incorrect"]');
+      const btnFilterUna = document.querySelector('.btn-filter[data-filter="unanswered"]');
+      if (btnFilterAll) btnFilterAll.textContent = `All (${totalQuestions})`;
+      if (btnFilterCor) btnFilterCor.textContent = `Correct (${correctCount})`;
+      if (btnFilterInc) btnFilterInc.textContent = `Incorrect (${incorrectCount})`;
+      if (btnFilterUna) btnFilterUna.textContent = `Unanswered (${unansweredCount})`;
+
+      // Build Review Cards
+      buildReviewList("all");
+
+      showScreen(screenResults);
+    }
+
+    function buildReviewList(filterType = "all") {
+      reviewCardsList.innerHTML = "";
+      const badgeLetters = ["A", "B", "C", "D"];
+
+      questions.forEach((q, idx) => {
+        const userChoice = userAnswers[idx];
+        const isCorrect = (userChoice === q.answer);
+        const isUnanswered = (userChoice === null);
+
+        let statusClass = "incorrect";
+        let statusText = "Incorrect";
+        if (isUnanswered) {
+          statusClass = "unanswered";
+          statusText = "Skipped";
+        } else if (isCorrect) {
+          statusClass = "correct";
+          statusText = "Correct";
+        }
+
+        // Apply filter
+        if (filterType === "correct" && !isCorrect) return;
+        if (filterType === "incorrect" && (isCorrect || isUnanswered)) return;
+        if (filterType === "unanswered" && !isUnanswered) return;
+
+        // Resolve text of chosen and correct options
+        const correctOptIdx = badgeLetters.indexOf(q.answer);
+        const correctOptFull = (correctOptIdx !== -1) ? `(${q.answer}) ${q.options[correctOptIdx]}` : q.answer;
+
+        let userChoiceFull = "None (Skipped)";
+        if (userChoice !== null) {
+          const userOptIdx = badgeLetters.indexOf(userChoice);
+          userChoiceFull = (userOptIdx !== -1) ? `(${userChoice}) ${q.options[userOptIdx]}` : userChoice;
+        }
+
+        const card = document.createElement("div");
+        card.className = `review-card ${statusClass}`;
+        card.innerHTML = `
+          <div class="review-card-top">
+            <span class="review-q-num">Question ${idx + 1} · <span style="color: #a5b4fc; font-weight: 600;">${q.year}</span></span>
+            <span class="status-tag ${statusClass}">${statusText}</span>
+          </div>
+          <div class="review-q-text">${q.question}</div>
+          <div class="review-answers-box">
+            <div class="answer-line">
+              <span style="color: var(--text-dim); font-size: 0.85rem;">Your Choice:</span>
+              <span class="ans-tag your-ans" style="border: 1px solid ${isCorrect ? 'var(--success)' : isUnanswered ? 'var(--warning)' : 'var(--danger)'}">
+                ${userChoiceFull}
+              </span>
+            </div>
+            <div class="answer-line">
+              <span style="color: var(--text-dim); font-size: 0.85rem;">Verified Answer:</span>
+              <span class="ans-tag correct-ans">${correctOptFull}</span>
+            </div>
+          </div>
+        `;
+
+        reviewCardsList.appendChild(card);
+      });
+
+      if (reviewCardsList.children.length === 0) {
+        reviewCardsList.innerHTML = `
+          <div style="text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.95rem;">
+            No questions matched the "${filterType}" filter.
+          </div>
+        `;
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       Event Listeners & Keyboard Accessibility
+       ------------------------------------------------------------------------- */
+    // Landing & Navigation
+    btnStartQuiz.addEventListener("click", startQuiz);
+    btnNext.addEventListener("click", goToNext);
+    btnPrev.addEventListener("click", goToPrev);
+    btnClearAns.addEventListener("click", clearCurrentAnswer);
+
+    // Question Drawer
+    btnOpenDrawer.addEventListener("click", openDrawer);
+    btnCloseDrawer.addEventListener("click", closeDrawer);
+    drawerOverlay.addEventListener("click", (e) => {
+      if (e.target === drawerOverlay) closeDrawer();
+    });
+
+    // Confirmation Modal
+    btnCancelSubmit.addEventListener("click", () => {
+      closeConfirm();
+      const firstUnanswered = userAnswers.findIndex(a => a === null);
+      if (firstUnanswered !== -1) {
+        loadQuestion(firstUnanswered);
+      }
+    });
+    btnConfirmSubmit.addEventListener("click", submitQuiz);
+    confirmOverlay.addEventListener("click", (e) => {
+      if (e.target === confirmOverlay) closeConfirm();
+    });
+
+    // Results Actions
+    btnRetake.addEventListener("click", startQuiz);
+    btnHome.addEventListener("click", () => {
+      stopTimer();
+      showScreen(screenLanding);
+    });
+
+    // Review Filters
+    document.querySelectorAll(".btn-filter").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".btn-filter").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        buildReviewList(btn.getAttribute("data-filter"));
+      });
+    });
+
+    // Keyboard Shortcuts
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (drawerOverlay.classList.contains("active")) {
+          closeDrawer();
+          return;
+        }
+        if (confirmOverlay.classList.contains("active")) {
+          closeConfirm();
+          return;
+        }
+      }
+
+      if (drawerOverlay.classList.contains("active") || confirmOverlay.classList.contains("active")) {
+        return;
+      }
+
+      // Quiz Screen Shortcuts
+      if (screenQuiz.classList.contains("active")) {
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          goToNext();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          goToPrev();
+        }
+
+        // Direct option selection using 1, 2, 3, 4 or A, B, C, D
+        const key = e.key.toUpperCase();
+        const map = { "1": "A", "2": "B", "3": "C", "4": "D", "A": "A", "B": "B", "C": "C", "D": "D" };
+        const selectedLetter = map[key];
+
+        if (selectedLetter) {
+          const card = optionsContainer.querySelector(`[data-letter="${selectedLetter}"]`);
+          let coords = null;
+          if (card) {
+            const rect = card.getBoundingClientRect();
+            coords = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+          }
+          selectAnswer(selectedLetter, coords);
+        }
+      } else if (screenLanding.classList.contains("active")) {
+        if (e.key === "Enter") {
+          startQuiz();
+        }
+      }
+    });
+
+    /* -------------------------------------------------------------------------
+       Crackers Animation & Audio Engine
+       ------------------------------------------------------------------------- */
+    const crackerCanvas = document.getElementById("crackerCanvas");
+    const crackerCtx = crackerCanvas.getContext("2d");
+    let crackerParticles = [];
+    let crackerShockwaves = [];
+    let crackerAnimId = null;
+
+    function resizeCrackerCanvas() {
+      crackerCanvas.width = window.innerWidth;
+      crackerCanvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCrackerCanvas);
+    resizeCrackerCanvas();
+
+    const CRACKER_PALETTE = [
+      "#ffd700", "#ff3d00", "#ff1744", "#00e676", 
+      "#00e5ff", "#d500f9", "#ff9100", "#ffffff",
+      "#6366f1", "#ec4899", "#f59e0b", "#10b981"
+    ];
+
+    let audioCtx = null;
+    function playCrackerPop() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        if (!audioCtx) audioCtx = new AudioContext();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+
+        const now = audioCtx.currentTime;
+
+        // 1. Crackle burst noise
+        const bufferSize = Math.floor(audioCtx.sampleRate * 0.05);
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
+        }
+
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buffer;
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = "bandpass";
+        filter.frequency.setValueAtTime(1500, now);
+        filter.Q.setValueAtTime(4, now);
+
+        const noiseGain = audioCtx.createGain();
+        noiseGain.gain.setValueAtTime(0.25, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(audioCtx.destination);
+        noise.start(now);
+
+        // 2. Sparkle ping
+        const osc = audioCtx.createOscillator();
+        const oscGain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(950, now);
+        osc.frequency.exponentialRampToValueAtTime(1450, now + 0.1);
+
+        oscGain.gain.setValueAtTime(0.12, now);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+
+        osc.connect(oscGain);
+        oscGain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.1);
+      } catch (e) {
+        // Silently ignore if blocked
+      }
+    }
+
+    class CrackerParticle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 8 + 3.5;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed - (Math.random() * 2.5 + 0.5);
+        this.gravity = 0.22;
+        this.friction = 0.94;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.024 + 0.016;
+        this.size = Math.random() * 4 + 2;
+        this.type = Math.random() > 0.45 ? "circle" : (Math.random() > 0.5 ? "star" : "spark");
+        this.spin = Math.random() * 0.3 - 0.15;
+        this.rotation = Math.random() * Math.PI * 2;
+      }
+
+      update() {
+        this.vx *= this.friction;
+        this.vy *= this.friction;
+        this.vy += this.gravity;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.rotation += this.spin;
+        this.alpha -= this.decay;
+      }
+
+      draw(c) {
+        c.save();
+        c.globalAlpha = Math.max(0, this.alpha);
+        c.fillStyle = this.color;
+        c.shadowColor = this.color;
+        c.shadowBlur = 8;
+        c.translate(this.x, this.y);
+        c.rotate(this.rotation);
+
+        if (this.type === "circle") {
+          c.beginPath();
+          c.arc(0, 0, this.size, 0, Math.PI * 2);
+          c.fill();
+        } else if (this.type === "star") {
+          c.beginPath();
+          const r = this.size * 1.6;
+          c.moveTo(0, -r);
+          c.quadraticCurveTo(0, 0, r, 0);
+          c.quadraticCurveTo(0, 0, 0, r);
+          c.quadraticCurveTo(0, 0, -r, 0);
+          c.quadraticCurveTo(0, 0, 0, -r);
+          c.fill();
+        } else {
+          c.beginPath();
+          c.moveTo(0, -this.size * 2);
+          c.lineTo(this.size * 0.6, 0);
+          c.lineTo(0, this.size * 2);
+          c.lineTo(-this.size * 0.6, 0);
+          c.closePath();
+          c.fill();
+        }
+
+        c.restore();
+      }
+    }
+
+    class CrackerShockwave {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.radius = 4;
+        this.maxRadius = Math.random() * 30 + 45;
+        this.alpha = 0.85;
+      }
+      update() {
+        this.radius += (this.maxRadius - this.radius) * 0.22;
+        this.alpha *= 0.87;
+      }
+      draw(c) {
+        if (this.alpha <= 0.02) return;
+        c.save();
+        c.globalAlpha = this.alpha;
+        c.strokeStyle = this.color;
+        c.lineWidth = 3;
+        c.shadowColor = this.color;
+        c.shadowBlur = 10;
+        c.beginPath();
+        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        c.stroke();
+        c.restore();
+      }
+    }
+
+    function triggerCrackers(x, y) {
+      playCrackerPop();
+
+      const mainColor = CRACKER_PALETTE[Math.floor(Math.random() * CRACKER_PALETTE.length)];
+      crackerShockwaves.push(new CrackerShockwave(x, y, mainColor));
+
+      const count = Math.floor(Math.random() * 20) + 45;
+      for (let i = 0; i < count; i++) {
+        const color = CRACKER_PALETTE[Math.floor(Math.random() * CRACKER_PALETTE.length)];
+        crackerParticles.push(new CrackerParticle(x, y, color));
+      }
+
+      if (!crackerAnimId) {
+        animateCrackersLoop();
+      }
+    }
+
+    function animateCrackersLoop() {
+      crackerCtx.clearRect(0, 0, crackerCanvas.width, crackerCanvas.height);
+
+      for (let i = crackerShockwaves.length - 1; i >= 0; i--) {
+        const sw = crackerShockwaves[i];
+        sw.update();
+        sw.draw(crackerCtx);
+        if (sw.alpha <= 0.03) {
+          crackerShockwaves.splice(i, 1);
+        }
+      }
+
+      for (let i = crackerParticles.length - 1; i >= 0; i--) {
+        const p = crackerParticles[i];
+        p.update();
+        p.draw(crackerCtx);
+        if (p.alpha <= 0.01) {
+          crackerParticles.splice(i, 1);
+        }
+      }
+
+      if (crackerParticles.length > 0 || crackerShockwaves.length > 0) {
+        crackerAnimId = requestAnimationFrame(animateCrackersLoop);
+      } else {
+        crackerAnimId = null;
+        crackerCtx.clearRect(0, 0, crackerCanvas.width, crackerCanvas.height);
+      }
+    }
+  </script>
+</body>
+</html>
